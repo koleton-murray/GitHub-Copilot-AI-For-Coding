@@ -2,6 +2,27 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Clerk authentication
+
+This project uses Clerk for authentication and is linked to application
+`app_3KcL0cLVmjsziEYaiuPY8qwrwhc`. To configure a new local checkout:
+
+```bash
+npm install
+npm install -g clerk
+clerk auth login
+clerk init --app app_3KcL0cLVmjsziEYaiuPY8qwrwhc
+clerk doctor
+```
+
+The CLI writes local authentication configuration to `.env.local`. Keep this
+file uncommitted and never expose `CLERK_SECRET_KEY` to client code.
+
+The header provides **Sign in** and **Sign up** controls when signed out, and a
+profile menu when signed in. Both controls open Clerk's built-in authentication
+modals without leaving the current page. There are no dedicated `/sign-in` or
+`/sign-up` pages. Clerk components use the shadcn theme.
+
 First, run the development server:
 
 ```bash
