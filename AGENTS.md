@@ -12,7 +12,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 A URL shortener built with Next.js (App Router), React, TypeScript, Clerk, Drizzle ORM on Neon Postgres, shadcn/ui and Tailwind CSS v4.
 
-This file is the entry point. Detailed standards live in [`/docs`](./docs). **Before writing or changing code, ALWAYS refer to the relevant .md file below that is relevant to the task, and follow it.** If a doc conflicts with your general knowledge, the doc wins.
+This file is the entry point. Detailed standards live in [`/docs`](./docs).
+
+## Mandatory first step: read the relevant instructions
+
+**ALWAYS read the relevant individual instruction files in [`/docs`](./docs) before planning, writing, or changing code. This is a non-negotiable prerequisite, not an optional reference.**
+
+- Inspect [`/docs`](./docs) for instructions that apply to the task; the index below is a starting point, not an exhaustive list.
+- Read each relevant file in full. Reading this index, relying on summaries, or assuming you remember the rules does **not** satisfy this requirement.
+- Follow all applicable instructions. If a doc conflicts with your general knowledge, the doc wins.
+- If the task expands to another area, read that area's instructions **before** making changes there.
+- If a required instruction file is missing or unreadable, report the blocker and ask for guidance instead of proceeding by assumption.
 
 ## Docs index
 

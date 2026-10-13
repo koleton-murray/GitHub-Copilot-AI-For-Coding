@@ -23,6 +23,14 @@ profile menu when signed in. Both controls open Clerk's built-in authentication
 modals without leaving the current page. There are no dedicated `/sign-in` or
 `/sign-up` pages. Clerk components use the shadcn theme.
 
+### Homepage
+
+The public homepage is a responsive, dark landing page with mint accents,
+feature highlights, and account-creation calls to action that open Clerk's
+sign-up modal. The link makeover is a static, labeled example, not a working
+shortening form or a live short link. Signed-in visitors continue to be
+redirected to `/dashboard`.
+
 First, run the development server:
 
 ```bash
