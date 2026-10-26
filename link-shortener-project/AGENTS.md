@@ -12,22 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 A URL shortener built with Next.js (App Router), React, TypeScript, Clerk, Drizzle ORM on Neon Postgres, shadcn/ui and Tailwind CSS v4.
 
-This file is the entry point. Detailed standards live in [`/docs`](./docs).
-
-## Mandatory first step: read the relevant instructions
-
-**ALWAYS read the relevant individual instruction files in [`/docs`](./docs) before planning, writing, or changing code. This is a non-negotiable prerequisite, not an optional reference.**
-
-- Inspect [`/docs`](./docs) for instructions that apply to the task; the index below is a starting point, not an exhaustive list.
-- Read each relevant file in full. Reading this index, relying on summaries, or assuming you remember the rules does **not** satisfy this requirement.
-- Follow all applicable instructions. If a doc conflicts with your general knowledge, the doc wins.
-- If the task expands to another area, read that area's instructions **before** making changes there.
-- If a required instruction file is missing or unreadable, report the blocker and ask for guidance instead of proceeding by assumption.
-
-## Docs index
-
-- [`docs/auth.md`](./docs/auth.md) — Authentication (Clerk only), route protection, homepage redirect, modal sign in/up.
-- [`docs/ui.md`](./docs/ui.md) — UI standards: always use shadcn/ui components; never create custom UI components.
+This file is the entry point. Copilot natively loads applicable standards from `.github/instructions/`.
 
 ## Commands
 
@@ -48,11 +33,10 @@ Before declaring a task done, run `npm run lint` and `npx tsc --noEmit` and fix 
 app/          Routes, layouts, pages, route handlers, colocated actions.ts
 components/   Shared React components; components/ui/ is shadcn-generated
 db/           Drizzle client (index.ts) and schema (schema.ts)
-data/         Server-only query helpers (one file per entity) — see docs/data.md
+data/         Server-only query helpers (one file per entity)
 lib/          Framework-agnostic utilities (cn, validation schemas, etc.)
 proxy.ts      Clerk middleware (Next.js 16 `proxy`, replaces `middleware.ts`)
 drizzle/      Generated migrations — never hand-edit
-docs/         Agent standards (this index's targets)
 ```
 
 Import with the `@/` alias (maps to the repo root), e.g. `@/db`, `@/components/ui/button`.

@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying UI components in the project.
+---
+
 # UI Standards
 
 - **Always use shadcn/ui components for all UI elements. Do not create custom UI components.**

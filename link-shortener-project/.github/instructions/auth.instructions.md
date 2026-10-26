@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying authentication in the project.
+---
+
 # Authentication
 
 All authentication in this app is handled by **Clerk**. No other auth method may be used — no custom sessions, JWTs, cookies, NextAuth/Auth.js, passwords, or hand-rolled login forms.
