@@ -1,0 +1,11 @@
+{
+    "hooks": {
+        "PostToolUse": [
+            {
+                "type": "command",
+                "command": "node .github/hooks/test-on-js-edit.mjs",
+                "timeout": 60
+            }
+        ]
+    }
+}

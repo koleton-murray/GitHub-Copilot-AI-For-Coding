@@ -1,0 +1,49 @@
+.chart-display {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chart.js needs an explicit container height when maintainAspectRatio is false. */
+#chart-container {
+    height: 600px;
+}
+
+#download-chart,
+#account-toggle,
+#submit-username {
+    align-self: flex-end;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #d63384;
+    --bs-btn-border-color: #d63384;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #b02a6f;
+    --bs-btn-hover-border-color: #b02a6f;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #b02a6f;
+    --bs-btn-active-border-color: #b02a6f;
+    --bs-btn-focus-shadow-rgb: 214, 51, 132;
+}
+
+.download-icon {
+    filter: brightness(0) invert(1);
+}
+
+.budget-title {
+    min-width: 0;
+}
+
+#account-toggle {
+    max-width: 10rem;
+}
+
+.account-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.account-menu {
+    width: 20rem;
+    max-width: calc(100vw - 2rem);
+}
