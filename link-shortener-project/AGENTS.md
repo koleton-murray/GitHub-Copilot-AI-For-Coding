@@ -20,12 +20,13 @@ This file is the entry point. Copilot natively loads applicable standards from `
 npm run dev      # start the dev server (http://localhost:3000)
 npm run build    # production build — also type-checks
 npm run lint     # ESLint (eslint-config-next)
+npm test         # Node.js tests via the existing tsx dependency
 npx tsc --noEmit # type-check only
 npx drizzle-kit generate   # generate a migration from db/schema.ts
 npx drizzle-kit migrate    # apply migrations
 ```
 
-Before declaring a task done, run `npm run lint` and `npx tsc --noEmit` and fix everything you introduced. There is no test runner configured yet; if you add one, document it here.
+Before declaring a task done, run `npm test`, `npm run lint`, and `npx tsc --noEmit` and fix everything you introduced. Tests use Node.js's built-in test runner with tsx.
 
 ## Project layout
 

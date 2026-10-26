@@ -12,6 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getUserLinks } from "@/data/links";
+import { LinkFormDialog } from "./link-form-dialog";
+import { DeleteLinkDialog } from "./delete-link-dialog";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   dateStyle: "medium",
@@ -33,9 +35,12 @@ export default async function DashboardPage() {
             All your links, in one place.
           </p>
         </div>
-        <Badge variant="secondary">
-          {links.length} {links.length === 1 ? "link" : "links"}
-        </Badge>
+        <div className="flex items-center gap-3">
+          <Badge variant="secondary">
+            {links.length} {links.length === 1 ? "link" : "links"}
+          </Badge>
+          <LinkFormDialog />
+        </div>
       </div>
 
       {links.length === 0 ? (
@@ -82,13 +87,17 @@ export default async function DashboardPage() {
                     </Button>
                   )}
                 </CardContent>
-                <CardFooter className="text-xs text-muted-foreground">
+                <CardFooter className="flex flex-wrap justify-between gap-3 text-xs text-muted-foreground">
                   <span>
                     Created{" "}
                     <time dateTime={link.createdAt.toISOString()}>
                       {dateFormatter.format(link.createdAt)}
                     </time>
                   </span>
+                  <div className="flex flex-wrap gap-2">
+                    <LinkFormDialog link={link} />
+                    <DeleteLinkDialog id={link.id} shortCode={link.shortCode} />
+                  </div>
                 </CardFooter>
               </Card>
             </li>
