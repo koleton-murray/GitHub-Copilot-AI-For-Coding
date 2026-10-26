@@ -31,6 +31,18 @@ sign-up modal. The link makeover is a static, labeled example, not a working
 shortening form or a live short link. Signed-in visitors continue to be
 redirected to `/dashboard`.
 
+### Dashboard
+
+The protected `/dashboard` page loads the signed-in user's links on the server
+through `data/links.ts`. The helper authenticates with Clerk and uses Drizzle
+to filter by the current user's ID, returning links newest first.
+
+Each link displays its short code, destination URL, and creation date (UTC).
+HTTP and HTTPS destinations can be opened in a new tab. Users without links
+see an empty state. Short-link redirects and link creation are not implemented.
+Configure `DATABASE_URL` in `.env.local` with the `links` schema applied before
+loading the dashboard.
+
 First, run the development server:
 
 ```bash
