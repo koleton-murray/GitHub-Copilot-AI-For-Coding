@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Security updates
+
+The project uses Next.js 16.4.3. `experimental.agentUpgrade` is set to `"security"`
+in `next.config.ts` to enable security upgrade reminders. From this directory, run
+`npx next upgrade --agent=security` to prepare a security update; upgrades are not
+applied automatically.
+
 ## Getting Started
 
 ### Clerk authentication
