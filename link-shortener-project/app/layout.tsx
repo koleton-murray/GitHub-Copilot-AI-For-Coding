@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Link2 } from "lucide-react";
 import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Link Shortener | Less link. More possibility.",
+  title: "Link Shortener | Shorten, share, and manage links",
   description:
     "A simpler way to share. Discover a clean, focused home for shorter links and your next big idea.",
 };
@@ -41,9 +41,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 render={<Link href="/" />}
                 className="mr-auto h-auto gap-2 p-0 text-xs font-semibold tracking-tight hover:bg-transparent sm:gap-2.5 sm:text-base"
               >
-                <span className="flex size-8 items-center justify-center rounded-lg bg-emerald-200 text-[#102419]">
-                  <Link2 className="size-4" aria-hidden="true" />
-                </span>
+                <Image
+                  src="/icon.svg"
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="size-8 shrink-0"
+                />
                 Link Shortener
               </Button>
               <Suspense fallback={<span className="text-sm text-muted-foreground" role="status">Loading account...</span>}>
