@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { createLinkSchema, linkIdSchema, updateLinkSchema } from "./links";
+import { createLinkSchema, linkIdSchema, updateLinkSchema } from "./schemas";
 
 const linkId = "123e4567-e89b-42d3-a456-426614174000";
 

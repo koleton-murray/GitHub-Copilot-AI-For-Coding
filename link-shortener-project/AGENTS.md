@@ -31,16 +31,22 @@ Before declaring a task done, run `npm test`, `npm run lint`, and `npx tsc --noE
 ## Project layout
 
 ```
-app/          Routes, layouts, pages, route handlers, colocated actions.ts
-components/   Shared React components; components/ui/ is shadcn-generated
+app/          Routes, layouts, pages, loading states, and route handlers
+components/   App-wide React components; components/ui/ is shadcn-generated
+features/     Feature-owned actions.ts, server-only data.ts, schemas, tests, and components
 db/           Drizzle client (index.ts) and schema (schema.ts)
-data/         Server-only query helpers (one file per entity)
-lib/          Framework-agnostic utilities (cn, validation schemas, etc.)
+lib/          Shared framework-agnostic utilities (cn, etc.)
 proxy.ts      Clerk middleware (Next.js 16 `proxy`, replaces `middleware.ts`)
 drizzle/      Generated migrations — never hand-edit
 ```
 
 Import with the `@/` alias (maps to the repo root), e.g. `@/db`, `@/components/ui/button`.
+
+Keep link-management code in `features/links/`. Pages compose feature components
+and load data through the feature's server-only `data.ts`; Client Components call
+the feature's `actions.ts`. Keep schemas safe to import on either side of the
+server/client boundary, and colocate their tests. Import specific modules rather
+than adding barrel exports that mix server-only and client-safe code.
 
 ## Non-negotiable rules
 

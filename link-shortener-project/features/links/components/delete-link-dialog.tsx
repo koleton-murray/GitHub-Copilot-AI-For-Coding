@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { deleteLink } from "./actions";
+import { deleteLink } from "../actions";
 
 export function DeleteLinkDialog({ id, shortCode }: { id: string; shortCode: string }) {
   const [open, setOpen] = useState(false);

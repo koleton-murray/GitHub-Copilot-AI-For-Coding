@@ -5,7 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { and, desc, eq } from "drizzle-orm";
 import db from "@/db";
 import { links } from "@/db/schema";
-import type { CreateLinkInput, UpdateLinkInput } from "@/lib/links";
+import type { CreateLinkInput, UpdateLinkInput } from "./schemas";
 
 function isUniqueViolation(error: unknown): boolean {
   if (typeof error !== "object" || error === null) return false;

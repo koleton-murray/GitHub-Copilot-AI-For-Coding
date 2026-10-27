@@ -3,14 +3,14 @@
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createUserLink, deleteUserLink, updateUserLink } from "@/data/links";
+import { createUserLink, deleteUserLink, updateUserLink } from "./data";
 import {
   createLinkSchema,
   linkIdSchema,
   updateLinkSchema,
   type CreateLinkInput,
   type UpdateLinkInput,
-} from "@/lib/links";
+} from "./schemas";
 
 export async function updateLink(
   input: UpdateLinkInput,

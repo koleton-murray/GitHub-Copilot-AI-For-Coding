@@ -1,5 +1,30 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project structure
+
+```text
+app/                         Routes, layouts, pages, and loading states
+components/
+  site-header.tsx            Shared site header and account controls
+  ui/                        Shared shadcn/ui primitives
+features/
+  links/
+    actions.ts               Authenticated, validated Server Actions
+    data.ts                  Server-only, owner-scoped database operations
+    schemas.ts               Shared Zod schemas and inferred input types
+    schemas.test.ts          Validation tests
+    components/              Link card and create/edit/delete dialogs
+db/                          Drizzle client and schema
+lib/                         Shared utilities, including the shadcn cn helper
+drizzle/                     Generated database migrations
+proxy.ts                     Clerk middleware and request redirects
+```
+
+Keep related behavior inside its feature rather than splitting it across
+top-level data and utility folders. Route files compose feature components.
+Database access stays in server-only data modules; schemas can be shared with
+Client Components. Import specific modules to preserve that boundary.
+
 ## Security updates
 
 The project uses Next.js 16.4.3. `experimental.agentUpgrade` is set to `"security"`
@@ -41,7 +66,7 @@ redirected to `/dashboard`.
 ### Dashboard
 
 The protected `/dashboard` page loads the signed-in user's links on the server
-through `data/links.ts`. The helper authenticates with Clerk and uses Drizzle
+through `features/links/data.ts`. The helper authenticates with Clerk and uses Drizzle
 to filter by the current user's ID, returning links newest first.
 
 Each link displays its short code, destination URL, and creation date (UTC).
@@ -66,7 +91,7 @@ Successful changes refresh the list and count; errors remain visible for retry.
 Configure `DATABASE_URL` in `.env.local` with the `links` schema applied before
 loading the dashboard.
 
-Run `npm test` for URL validation tests, `npm run lint` for ESLint, and
+Run `npm test` for colocated feature tests (currently link validation), `npm run lint` for ESLint, and
 `npx tsc --noEmit` for type-checking.
 
 First, run the development server:

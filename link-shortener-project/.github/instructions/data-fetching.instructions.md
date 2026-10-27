@@ -9,8 +9,8 @@ In Next.js ALWAYS use Server Components for data fetching. NEVER use Client Comp
 
 ## 2. Data Fetching Methods
 
-ALWAYS use the helper functions in the /data directory to fetch data. NEVER fetch data directly inside your components.
+ALWAYS use the helper functions in the feature's `data.ts` module to fetch data. NEVER execute database queries directly inside your components.
 
-ALL helper functions in the /data directory should use Drizzle ORM for database interactions.
+ALL data helper modules should use Drizzle ORM for database interactions and import `"server-only"`.
 
-User-owned data helpers must derive the current `userId` from Clerk's server-side `auth()`, reject unauthenticated access, and filter queries by that owner. `data/links.ts` provides `getUserLinks()` for the dashboard, ordered newest first.
+User-owned data helpers must derive the current `userId` from Clerk's server-side `auth()`, reject unauthenticated access, and filter queries by that owner. `features/links/data.ts` provides `getUserLinks()` for the dashboard, ordered newest first.
