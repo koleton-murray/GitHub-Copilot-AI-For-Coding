@@ -13,6 +13,17 @@ function isUniqueViolation(error: unknown): boolean {
   return "cause" in error && isUniqueViolation(error.cause);
 }
 
+// Public resolution intentionally omits ownership; management queries remain owner-scoped.
+export async function getLinkDestination(shortCode: string) {
+  const [link] = await db
+    .select({ originalUrl: links.originalUrl })
+    .from(links)
+    .where(eq(links.shortCode, shortCode))
+    .limit(1);
+
+  return link?.originalUrl;
+}
+
 export async function updateUserLink({ id, originalUrl, customSlug }: UpdateLinkInput) {
   const { userId } = await auth();
   if (!userId) {

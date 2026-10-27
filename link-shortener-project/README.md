@@ -80,7 +80,16 @@ paths (`dashboard`, `api`, and `_next`, regardless of case) cannot be used.
 Blank or whitespace-only slugs use automatic generation. If a custom slug is
 already taken, the dialog displays an error without creating a link.
 Successful creation closes the dialog and refreshes the link list and count;
-failures stay in the dialog for retry. Short-link redirects are not implemented.
+failures stay in the dialog for retry. Each short code opens the public
+`/l/[shortcode]` route in a new tab. A primary **Open link** button in the
+upper-right corner of each card also opens that route in a new tab.
+Its GET route handler resolves the globally
+unique, case-sensitive code and returns a temporary (307) redirect to the saved
+HTTP or HTTPS destination, preserving its path, query, and fragment. This public
+lookup returns only the destination and does not require sign-in; listing and
+managing links remain authenticated and owner-scoped. Invalid or unknown codes
+return a JSON 404. Responses are not cached so edits and deletions take effect
+on subsequent visits.
 Each item also has **Edit link** and **Delete link** actions. Editing opens a
 prefilled dialog for the destination and short code, using the same URL and slug
 validation as creation (a short code is required when editing). Duplicate slugs

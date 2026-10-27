@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -26,9 +27,36 @@ export function LinkCard({
     <Card className="h-full">
       <CardHeader>
         <CardDescription>Short code</CardDescription>
-        <CardTitle className="break-all font-mono">
-          {link.shortCode}
+        <CardTitle className="min-w-0 break-all font-mono">
+          <a
+            href={`/l/${encodeURIComponent(link.shortCode)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            {link.shortCode}
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </CardTitle>
+        <CardAction>
+          <Button
+            variant="outline"
+            size="sm"
+            render={
+              <a
+                href={`/l/${encodeURIComponent(link.shortCode)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open short link ${link.shortCode} in a new tab`}
+                title="Open short link in a new tab"
+              />
+            }
+            nativeButton={false}
+          >
+            Open link
+            <ArrowUpRight aria-hidden="true" />
+          </Button>
+        </CardAction>
       </CardHeader>
       <CardContent className="flex-1">
         <p className="break-all text-sm text-muted-foreground">
